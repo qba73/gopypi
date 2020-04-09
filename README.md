@@ -1,2 +1,2 @@
-# gopy
-Golang library for PyPI
+# gopypi
+Go package for working with PyPI REST API
