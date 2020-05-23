@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/qba73/gopypi/pkg/pypi"
+	"github.com/qba73/gopypi"
 	"log"
 )
 
 func main()  {
-	client, err := pypi.NewClient()
+	client, err := gopypi.NewClient()
 	if err != nil {
 		log.Println(err)
 	}

@@ -1,4 +1,4 @@
-package pypi
+package gopypi
 
 import (
 	"encoding/json"
