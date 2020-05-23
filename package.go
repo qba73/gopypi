@@ -31,6 +31,8 @@ type PackageService struct {
 	client *Client
 }
 
+// Get knows how to retrieve information from PyPI server
+// about the provided python package.
 func (p *PackageService) Get(name string) (*Package, error) {
 	path := fmt.Sprintf("/pypi/%s/json", name)
 	res, err := p.client.httpClient.Get(p.client.BaseURL + path)

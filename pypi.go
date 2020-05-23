@@ -16,7 +16,7 @@ type Client struct {
 // to override default http client.
 func NewClient(opts ...func(*Client) error) (*Client, error) {
 	client := Client{
-		BaseURL: "https://pypi.org",
+		BaseURL:    "https://pypi.org",
 		httpClient: &http.Client{Timeout: 30 * time.Second},
 	}
 

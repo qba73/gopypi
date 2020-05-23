@@ -1,14 +1,3 @@
-# gopypi
-Go client for [PyPI](https://pypi.org) REST API.
-
-# Installation
-```go
-$ go get github.com/qba73/gopypi
-```
-
-# Usage
-
-```go
 package main
 
 import (
@@ -16,15 +5,15 @@ import (
 	"github.com/qba73/gopypi"
 )
 
-func main() {
+func main()  {
 	// Create a new, default PyPI client
-	pypi, err := gopypi.NewClient()
+	client, err := gopypi.NewClient()
 	if err != nil {
 		fmt.Println(err)
 	}
 
 	// Fetch information about Python "pytest" package
-	p, err := pypi.Package.Get("pytest")
+	p, err := client.Package.Get("pytest")
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -40,6 +29,3 @@ func main() {
 		fmt.Println(c)
 	}
 }
-```
-
-
