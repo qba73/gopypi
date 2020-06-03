@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-func main()  {
+func main() {
 	client, err := gopypi.NewClient()
 	if err != nil {
 		log.Println(err)
