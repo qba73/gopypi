@@ -5,7 +5,7 @@ import (
 	"github.com/qba73/gopypi"
 )
 
-func main()  {
+func main() {
 	// Create a new, default PyPI client
 	client, err := gopypi.NewClient()
 	if err != nil {
