@@ -2,7 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/qba73/gopypi.svg?style=shield)](https://circleci.com/gh/qba73/gopypi)
 [![codecov](https://codecov.io/gh/qba73/gopypi/branch/master/graph/badge.svg)](https://codecov.io/gh/qba73/gopypi)
-
+[![Go Report Card](https://goreportcard.com/badge/github.com/qba73/gopypi)](https://goreportcard.com/report/github.com/qba73/gopypi)
 
 Go client for [PyPI](https://pypi.org) REST API.
 
