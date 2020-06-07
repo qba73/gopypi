@@ -1,5 +1,11 @@
 # gopypi
+
+[![CircleCI](https://circleci.com/gh/qba73/go-yaml.svg?style=shield)](https://circleci.com/gh/qba73/gopypi)
+[![codecov](https://codecov.io/gh/qba73/gopypi/branch/master/graph/badge.svg)](https://codecov.io/gh/qba73/gopypi)
+
+
 Go client for [PyPI](https://pypi.org) REST API.
+
 
 # Installation
 ```go
