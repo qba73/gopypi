@@ -1,6 +1,6 @@
 # gopypi
 
-[![CircleCI](https://circleci.com/gh/qba73/go-yaml.svg?style=shield)](https://circleci.com/gh/qba73/gopypi)
+[![CircleCI](https://circleci.com/gh/qba73/gopypi.svg?style=shield)](https://circleci.com/gh/qba73/gopypi)
 [![codecov](https://codecov.io/gh/qba73/gopypi/branch/master/graph/badge.svg)](https://codecov.io/gh/qba73/gopypi)
 
 
