@@ -1,12 +1,12 @@
 # Golang CircleCI 2.0 configuration file
 #
 # Check https://circleci.com/docs/2.0/language-go/ for more details
-version: 2
-jobs:
-  build:
-    docker:
+#version: 2
+#jobs:
+#  build:
+#    docker:
       # specify the version
-      - image: circleci/golang:1.9
+#      - image: circleci/golang:1.12
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -17,10 +17,35 @@ jobs:
     #### expecting it in the form of
     ####   /go/src/github.com/circleci/go-tool
     ####   /go/src/bitbucket.org/circleci/go-tool
-    working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
-    steps:
-      - checkout
+#    working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
+#    steps:
+#      - checkout
 
       # specify any bash command here prefixed with `run: `
-      - run: go get -v -t -d ./...
-      - run: go test -v ./...
+#      - run: go get -v -t -d ./...
+#      - run: go test -v ./...
+
+version: 2
+jobs:
+  test:
+    working_directory: /go/src/github.com/qba73/gopypi
+    docker:
+    - image: circleci/golang:1.12
+      environment:
+        GO111MODULE: "on"
+    steps:
+      - checkout
+      - run:
+          name: Download modules
+          command: |
+            go mod download
+      - run:
+          name: Run unit tests and measure coverage
+          command: |
+            go test -v -coverprofile=coverage.out ./...
+            bash <(curl -s https://codecov.io/bash) -P ${CIRCLE_PULL_REQUEST##*/}
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
