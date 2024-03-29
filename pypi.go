@@ -26,17 +26,19 @@ type PackageInfo struct {
 	RequiresPython string   `json:"requires_python"`
 }
 
+// Package holds all information about Python package.
 type Package struct {
 	Info PackageInfo  `json:"info"`
 	URLS []PackageUrl `json:"urls"`
 }
 
+// Client represents PyPI client.
 type Client struct {
 	BaseURL    string
 	HttpClient *http.Client
 }
 
-// NewClient creates a new PyPI client.
+// NewClient creates a new, default PyPI client.
 func NewClient() *Client {
 	client := Client{
 		BaseURL:    "https://pypi.org",
@@ -45,8 +47,8 @@ func NewClient() *Client {
 	return &client
 }
 
-// Get knows how to retrieve information from PyPI server
-// about the provided python package.
+// Get knows how to retrieve information from PyPI server.
+// It returns info about given Python package.
 func (c *Client) Get(ctx context.Context, name string) (Package, error) {
 	path := fmt.Sprintf("%s/pypi/%s/json", c.BaseURL, name)
 	req, err := http.NewRequestWithContext(ctx, "GET", path, nil)
@@ -66,11 +68,12 @@ func (c *Client) Get(ctx context.Context, name string) (Package, error) {
 	return pkg, nil
 }
 
+// DefaultPyPIClient it'a a default client used by the default Get function.
 var DefaultPyPIClient = NewClient()
 
 // Get takes a string representing a Python package name and returns
 // detailed information about the package.
-// Get uses default Client under the hood.
+// Get internally uses default Client.
 func Get(name string) (Package, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
