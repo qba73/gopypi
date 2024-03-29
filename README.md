@@ -4,7 +4,6 @@
 ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/qba73/gopypi)
 ![GitHub](https://img.shields.io/github/license/qba73/gopypi)
 
-
 `gopypi` is a Go client library for [PyPI](https://pypi.org) REST API.
 
 ## How to use it
@@ -27,7 +26,13 @@ func main() {
 
 ### As a cli tool
 
-Build the binary:
+Install Go binary
+
+```shell
+go install github.com/qba73/gopypi/cmd/pypi@latest
+```
+
+or clone the project and build binary:
 
 ```shell
 go build -o pypi ./cmd/pypi/main.go
