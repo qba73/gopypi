@@ -41,7 +41,7 @@ go build -o pypi ./cmd/pypi/main.go
 Run cli:
 
 ```shell
-./pypi requests
+pypi requests
 ```
 
 ```shell
@@ -51,7 +51,10 @@ Run cli:
 Pipe output to `jq`:
 
 ```shell
-./pypi requests | jq .
+pypi requests | jq .
+```
+
+```shell
 {
   "info": {
     "name": "requests",
