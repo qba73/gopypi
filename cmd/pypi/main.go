@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"os"
+
+	"github.com/qba73/gopypi"
+)
 
 func main() {
-	fmt.Println("PyPI CLI...")
+	os.Exit(gopypi.Main())
 }

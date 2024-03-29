@@ -1,16 +1,19 @@
-package gopypi
+package gopypi_test
 
 import (
+	"context"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"testing"
+
+	"github.com/qba73/gopypi"
 )
 
-func readFile(f string) ([]byte, error) {
-	b, err := ioutil.ReadFile(f)
+func readFile(filepath string) ([]byte, error) {
+	b, err := os.ReadFile(filepath)
 	if err != nil {
 		return nil, err
 	}
@@ -32,26 +35,15 @@ func mockServer() *httptest.Server {
 	return httptest.NewServer(http.HandlerFunc(f))
 }
 
-// WithTestClient knows how to use mock server url
-// instead of the pypi base url.
-func WithTestClient(url string) func(*Client) error {
-	return func(c *Client) error {
-		c.BaseURL = url
-		return nil
-	}
-}
-
 func TestPackageService_Get(t *testing.T) {
 	server := mockServer()
 	defer server.Close()
 
-	client, err := NewClient(WithTestClient(server.URL))
-	if err != nil {
-		t.Fatal("NewClient() error")
-	}
+	client := gopypi.NewClient()
+	client.BaseURL = server.URL
 
 	arg := "pytest"
-	got, err := client.Package.Get(arg)
+	got, err := client.Get(context.Background(), arg)
 	if err != nil {
 		t.Errorf("client.Package.Get(%q) = %v", arg, got)
 	}

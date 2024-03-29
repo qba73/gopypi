@@ -1,19 +1,18 @@
 package main
 
 import (
+	"context"
 	"fmt"
+
 	pypi "github.com/qba73/gopypi"
 )
 
 func main() {
 	// Create a new, default PyPI client
-	client, err := pypi.NewClient()
-	if err != nil {
-		fmt.Println(err)
-	}
+	client := pypi.NewClient()
 
 	// Fetch information about Python "pytest" package
-	p, err := client.Package.Get("pytest")
+	p, err := client.Get(context.Background(), "pytest")
 	if err != nil {
 		fmt.Println(err)
 	}

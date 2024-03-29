@@ -2,18 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/qba73/gopypi"
+
+	pypi "github.com/qba73/gopypi"
 )
 
 func main() {
-	// Create a new, default PyPI client
-	client, err := gopypi.NewClient()
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	// Fetch information about Python "pytest" package
-	p, err := client.Package.Get("pytest")
+	// Use default Get package method to retrieve info about the 'requests' package.
+	p, err := pypi.Get("requests")
 	if err != nil {
 		fmt.Println(err)
 	}

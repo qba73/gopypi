@@ -1,18 +1,19 @@
 package main
 
 import (
+	"context"
 	"fmt"
-	"github.com/qba73/gopypi"
 	"log"
+	"net/http"
+
+	"github.com/qba73/gopypi"
 )
 
 func main() {
-	client, err := gopypi.NewClient()
-	if err != nil {
-		log.Println(err)
-	}
+	client := gopypi.NewClient()
+	client.HttpClient = &http.Client{}
 
-	p, err := client.Package.Get("pytest")
+	p, err := client.Get(context.Background(), "pytest")
 	if err != nil {
 		log.Println(err)
 	}

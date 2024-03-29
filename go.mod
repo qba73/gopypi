@@ -1,3 +1,3 @@
 module github.com/qba73/gopypi
 
-go 1.14
+go 1.22
