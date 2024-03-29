@@ -1,6 +1,9 @@
 [![CircleCI](https://circleci.com/gh/qba73/gopypi.svg?style=shield)](https://circleci.com/gh/qba73/gopypi)
 [![codecov](https://codecov.io/gh/qba73/gopypi/branch/master/graph/badge.svg)](https://codecov.io/gh/qba73/gopypi)
 [![Go Report Card](https://goreportcard.com/badge/github.com/qba73/gopypi)](https://goreportcard.com/report/github.com/qba73/gopypi)
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/qba73/gopypi)
+![GitHub](https://img.shields.io/github/license/qba73/gopypi)
+
 
 `gopypi` is a Go client library for [PyPI](https://pypi.org) REST API.
 
